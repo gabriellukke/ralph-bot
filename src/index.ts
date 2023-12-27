@@ -1,5 +1,6 @@
 // Require the necessary discord.js classes
 import { Client, GatewayIntentBits, Events } from 'discord.js';
+import chalk from 'chalk';
 
 const token = process.env.TOKEN;
 
@@ -10,7 +11,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 // The distinction between `client: Client<boolean>` and `readyClient: Client<true>` is important for TypeScript developers.
 // It makes some properties non-nullable.
 client.once(Events.ClientReady, readyClient => {
-	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+	console.log(chalk.green(`Ready! Logged in as ${readyClient.user.tag}`));
 });
 
 // Log in to Discord with your client's token
